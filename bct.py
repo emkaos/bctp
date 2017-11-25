@@ -40,7 +40,7 @@ def _create_bctentry_from_html_subtree(subtree, h2t):
     rank =  subtree.find(".//td[@class='poster_info']//div[@class='smalltext']").text.strip()
     text =  subtree.find(".//td[@class='td_headerandpost']/div[@class='post']")
     content =  etree.tostring(text).strip()
-    #content = h2t.handle(content)
+    content = h2t.handle(content)
     m = hashlib.md5()
     m.update(etree.tostring(subtree))
     id = m.digest()
