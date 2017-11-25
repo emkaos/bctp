@@ -1,0 +1,10 @@
+Following python libraries are required
+- requests
+- html2text
+- lxml
+- lsm-db
+- PyYAML
+- python-telegram-bot
+
+
+

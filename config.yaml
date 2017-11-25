@@ -1,0 +1,10 @@
+---
+threads:
+  - WTC:  "https://bitcointalk.org/index.php?topic=2127069.0"
+  - PAY:  "https://bitcointalk.org/index.php?topic=1953612.0"
+  - XRP:  "https://bitcointalk.org/index.php?topic=.0"
+telegram:
+  bot_key: "<key>"
+  chat_id: <chatid>
+db:
+  filename: "entryhist.db"
