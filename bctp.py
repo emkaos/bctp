@@ -32,12 +32,12 @@ for thread in config['threads']:
 
     for entry in entries:
         if not entry.id in db and not _is_empty(entry):
-            print "= " + name + " ========="
-            print "[" + entry.username + "|" + entry.userrank + "]"
-            print entry.content
+            message_text =  "= *" + name + "* =========\n"
+            + "[" + entry.username + "|" + entry.userrank + "]\n"
+            + entry.content
             db[entry.id] = "1"
 
-            bot.send_message(chat_id=my_chat_id, text="test test test", parse_mode=telegram.ParseMode.MARKDOWN)
+            bot.send_message(chat_id=my_chat_id, text=message_text, parse_mode=telegram.ParseMode.MARKDOWN)
             time.sleep(50) # spam threshold
 
 
