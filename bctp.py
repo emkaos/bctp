@@ -2,6 +2,7 @@ import yaml
 import telegram
 import lsm
 import bct
+import time
 
 
 # read config
@@ -15,8 +16,10 @@ def _get_telegram_bot(bot_key):
     bot = telegram.Bot(token=bot_key)
     return bot
 
+
 def _is_empty(entry):
     return (not entry.content.strip() or entry.content.strip() == entry.username)
+
 
 config = _read_config("config.yaml")
 db = lsm.LSM(config["db"]["filename"])
@@ -34,8 +37,9 @@ for thread in config['threads']:
             print entry.content
             db[entry.id] = "1"
 
+            bot.send_message(chat_id=my_chat_id, text="test test test", parse_mode=telegram.ParseMode.MARKDOWN)
+            time.sleep(50) # spam threshold
 
-#bot.send_message(chat_id=my_chat_id, text="test test test", parse_mode=telegram.ParseMode.MARKDOWN)
 
 
 
