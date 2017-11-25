@@ -38,7 +38,7 @@ for thread in config['threads']:
             db[entry.id] = "1"
 
             bot.send_message(chat_id=my_chat_id, text=message_text, parse_mode=telegram.ParseMode.MARKDOWN)
-            time.sleep(50) # spam threshold
+            time.sleep(0.05) # spam threshold
 
 
 
