@@ -37,10 +37,15 @@ def _get_entries_for_thread_page(forum_thread_page):
 
 def _create_bctentry_from_html_subtree(subtree, h2t):
     username =  subtree.find(".//td[@class='poster_info']/b/a").text
+    username = username.encode("utf-8")
     rank =  subtree.find(".//td[@class='poster_info']//div[@class='smalltext']").text.strip()
     text =  subtree.find(".//td[@class='td_headerandpost']/div[@class='post']")
     content =  etree.tostring(text).strip()
+    content = content.replace("*","")
+    content = content.replace("#","")
+    content = content.replace("_","")
     content = h2t.handle(content)
+    content = content.encode("utf-8")
     m = hashlib.md5()
     m.update(etree.tostring(subtree))
     id = m.hexdigest()
