@@ -43,7 +43,7 @@ def _create_bctentry_from_html_subtree(subtree, h2t):
     content = h2t.handle(content)
     m = hashlib.md5()
     m.update(etree.tostring(subtree))
-    id = m.digest()
+    id = m.hexdigest()
     return BctEntry(id, username, rank, content)
 
 def read_last_page(thread_url):
