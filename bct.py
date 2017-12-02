@@ -47,7 +47,7 @@ def _create_bctentry_from_html_subtree(subtree, h2t):
     content = h2t.handle(content)
     content = content.encode("utf-8")
     m = hashlib.md5()
-    m.update(etree.tostring(subtree))
+    m.update(etree.tostring(username+content))
     id = m.hexdigest()
     return BctEntry(id, username, rank, content)
 
